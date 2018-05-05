@@ -58,7 +58,8 @@
     "path-type": "^3.0.0",
     "sharp": "^0.20.2",
     "user-home": "^2.0.0",
-    "vue": "^2.1.7"
+    "vue": "^2.1.7",
+    "vueify": "^9.4.1"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",
@@ -66,7 +67,6 @@
     "babel-preset-react": "^6.24.1",
     "electron-forge": "^5.2.0",
     "electron-prebuilt-compile": "2.0.0",
-    "electron-unhandled": "^1.1.0",
-    "vueify": "^9.4.1"
+    "electron-unhandled": "^1.1.0"
   }
 }
