@@ -24,27 +24,25 @@
       },
       "electronPackagerConfig": {
         "packageManager": "yarn",
-        "asar": true,
-        "quiet": true,
         "protocol": "mmmmh://",
         "icon": "./icon/app.png"
       },
       "electronInstallerDMG": {
-        "icon": "path/to/app.icns",
+        "icon": "./icon/app.icns",
         "format": "ULFO"
       },
       "electronWinstallerConfig": {
-        "name": "my_new_project"
+        "name": "mmmmh"
       },
       "electronInstallerDebian": {},
       "electronInstallerRedhat": {},
       "github_repository": {
-        "owner": "",
-        "name": ""
+        "owner": "MiYogurt",
+        "name": "mmmmh"
       },
       "windowsStoreConfig": {
-        "packageName": "",
-        "name": "mynewproject"
+        "packageName": "mmmmh",
+        "name": "mmmmh"
       }
     }
   },

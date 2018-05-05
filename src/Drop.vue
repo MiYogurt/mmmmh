@@ -9,7 +9,6 @@
 <script>
 import { ipcRenderer } from 'electron'
 
-let timer = null
 export default {
   name: 'drop',
   data () {
@@ -18,6 +17,7 @@ export default {
     }
   },
   mounted(){
+    document.body.ondragover = document.body.ondrop = (e) => e.preventDefault()
   },
   methods: {
     dragover(){
