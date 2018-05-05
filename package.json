@@ -1,72 +1,80 @@
 {
-  "name": "mmmmh",
-  "productName": "mmmmh",
-  "version": "1.0.0",
-  "description": "妈咪妈咪哄",
-  "main": "src/index.js",
-  "scripts": {
-    "dev": "chokidar './src/index.js' -c './dev' --initial",
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
-  },
-  "keywords": [],
-  "author": "Yugo",
-  "license": "MIT",
-  "config": {
-    "forge": {
-      "make_targets": {
-        "win32": ["squirrel"],
-        "darwin": ["zip"],
-        "linux": ["deb", "rpm"]
-      },
-      "electronPackagerConfig": {
-        "packageManager": "yarn",
-        "protocol": "mmmmh://",
-        "icon": "./icon/app.png"
-      },
-      "electronInstallerDMG": {
-        "icon": "./icon/app.icns",
-        "format": "ULFO"
-      },
-      "electronWinstallerConfig": {
-        "name": "mmmmh"
-      },
-      "electronInstallerDebian": {},
-      "electronInstallerRedhat": {},
-      "github_repository": {
-        "owner": "MiYogurt",
-        "name": "mmmmh"
-      },
-      "windowsStoreConfig": {
-        "packageName": "mmmmh",
-        "name": "mmmmh"
-      }
+    "name": "mmmmh",
+    "productName": "mmmmh",
+    "version": "1.0.0",
+    "description": "妈咪妈咪哄",
+    "main": "src/index.js",
+    "scripts": {
+        "dev": "chokidar './src/index.js' -c './scripts/dev.sh' --initial",
+        "start": "electron-forge start",
+        "package": "electron-forge package",
+        "make": "electron-forge make",
+        "publish": "electron-forge publish",
+        "lint": "echo \"No linting configured\""
+    },
+    "keywords": [],
+    "author": "MiYogurt",
+    "license": "MIT",
+    "config": {
+        "forge": {
+            "make_targets": {
+                "win32": [],
+                "darwin": ["dmg"],
+                "linux": []
+            },
+            "electronPackagerConfig": {
+                "packageManager": "yarn",
+                "protocol": "mmmmh://",
+                "icon": "./icon/app.png"
+            },
+            "electronInstallerDMG": {
+                "icon": "./icon/app.icns",
+                "format": "ULFO"
+            },
+            "electronWinstallerConfig": {
+                "name": "mmmmh"
+            },
+            "electronInstallerDebian": {},
+            "electronInstallerRedhat": {},
+            "github_repository": {
+                "owner": "MiYogurt",
+                "name": "mmmmh",
+                "per_page": 1,
+                "options": {
+                    "protocol": "https",
+                    "host": "api.github.com"
+                }
+            },
+            "publish_targets": {
+                "darwin": ["github"]
+            },
+            "windowsStoreConfig": {
+                "packageName": "mmmmh",
+                "name": "mmmmh"
+            }
+        }
+    },
+    "dependencies": {
+        "electron-compile": "^6.4.2",
+        "electron-compilers": "^5.9.0",
+        "electron-devtools-installer": "^2.2.2",
+        "electron-squirrel-startup": "^1.0.0",
+        "electron-util": "^0.8.2",
+        "fast-glob": "^2.2.1",
+        "fs-extra": "^6.0.0",
+        "menubar": "^5.2.3",
+        "path-type": "^3.0.0",
+        "sharp": "^0.20.2",
+        "user-home": "^2.0.0",
+        "vue": "^2.1.7",
+        "vueify": "^9.4.1"
+    },
+    "devDependencies": {
+        "babel-plugin-transform-async-to-generator": "^6.24.1",
+        "babel-preset-env": "^1.6.1",
+        "babel-preset-react": "^6.24.1",
+        "electron-forge": "^5.2.0",
+        "electron-prebuilt-compile": "2.0.0",
+        "electron-unhandled": "^1.1.0"
     }
-  },
-  "dependencies": {
-    "electron-compile": "^6.4.2",
-    "electron-compilers": "^5.9.0",
-    "electron-devtools-installer": "^2.2.2",
-    "electron-squirrel-startup": "^1.0.0",
-    "electron-util": "^0.8.2",
-    "fast-glob": "^2.2.1",
-    "fs-extra": "^6.0.0",
-    "menubar": "^5.2.3",
-    "path-type": "^3.0.0",
-    "sharp": "^0.20.2",
-    "user-home": "^2.0.0",
-    "vue": "^2.1.7",
-    "vueify": "^9.4.1"
-  },
-  "devDependencies": {
-    "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "electron-forge": "^5.2.0",
-    "electron-prebuilt-compile": "2.0.0",
-    "electron-unhandled": "^1.1.0"
-  }
 }
