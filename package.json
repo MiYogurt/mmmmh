@@ -1,7 +1,7 @@
 {
     "name": "mmmmh",
     "productName": "mmmmh",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "妈咪妈咪哄",
     "main": "src/index.js",
     "scripts": {
@@ -16,43 +16,7 @@
     "author": "MiYogurt",
     "license": "MIT",
     "config": {
-        "forge": {
-            "make_targets": {
-                "win32": [],
-                "darwin": ["dmg"],
-                "linux": []
-            },
-            "electronPackagerConfig": {
-                "packageManager": "yarn",
-                "protocol": "mmmmh://",
-                "icon": "./icon/app.png"
-            },
-            "electronInstallerDMG": {
-                "icon": "./icon/app.icns",
-                "format": "ULFO"
-            },
-            "electronWinstallerConfig": {
-                "name": "mmmmh"
-            },
-            "electronInstallerDebian": {},
-            "electronInstallerRedhat": {},
-            "github_repository": {
-                "owner": "MiYogurt",
-                "name": "mmmmh",
-                "per_page": 1,
-                "options": {
-                    "protocol": "https",
-                    "host": "api.github.com"
-                }
-            },
-            "publish_targets": {
-                "darwin": ["github"]
-            },
-            "windowsStoreConfig": {
-                "packageName": "mmmmh",
-                "name": "mmmmh"
-            }
-        }
+        "forge": "./forge.config.js"
     },
     "dependencies": {
         "electron-compile": "^6.4.2",
