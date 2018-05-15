@@ -17,6 +17,7 @@ import glob from 'fast-glob'
 import sharp from 'sharp'
 import homeDir from 'user-home'
 import { dirSync } from 'path-type'
+import store from './config'
 
 if (is.development) {
   const unhandled = require('electron-unhandled')
@@ -42,23 +43,39 @@ const handleImage = fileOrFolder => {
   }
   const file = fileOrFolder
   const { name: filename } = parse(file)
-  const outputPath = resolve(homeDir, 'Pictures/mmmmh')
+
+  const outputPath = store.get('savePath')
 
   if (!fs.pathExistsSync(outputPath)) {
     fs.mkdirsSync(outputPath)
   }
 
   log('handle ' + file)
-  return sharp(file)
-    .webp()
-    .toFile(resolve(outputPath, filename + '.webp'))
+
+  let input = sharp(file)
+
+  switch (store.get('outputType')) {
+    case 'webp':
+      input = input.webp().toFile(resolve(outputPath, filename + '.webp'))
+      break
+    case 'png':
+      input = input.png().toFile(resolve(outputPath, filename + '.png'))
+      break
+    case 'jpeg':
+      input = input.jpeg().toFile(resolve(outputPath, filename + '.jpeg'))
+      break
+  }
+
+  return input
     .then(info => {
+      log(info)
+      console.log(Notification.isSupported())
       if (Notification.isSupported()) {
-        new Notification({
+        let notice = new Notification({
           title: '压缩完成',
-          body: filename,
-          soundString: resolve('/System/Library/Sounds', 'Ping.aiff')
-        }).show()
+          body: filename
+        })
+        notice.show()
       }
     })
     .catch(console.error)
@@ -71,6 +88,10 @@ const mb = menubar({
   alwaysOnTop: true,
   width: 300,
   height: 200
+})
+
+mb.app.on('window-all-closed', e => {
+  log('all closed')
 })
 
 mb.on('ready', function ready() {
